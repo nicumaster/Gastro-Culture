@@ -37,6 +37,7 @@
 include_once "src/IndexController.php";
 
 $action = isset($_GET['action'] ? )
+bing
 ?>
 </body>
 </html>
