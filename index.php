@@ -35,7 +35,7 @@
 </nav>
 <?php
 include_once "src/IndexController.php";
-
+säli
 $action = isset($_GET['action'] ? )
 ?>
 </body>
