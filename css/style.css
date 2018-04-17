@@ -1,3 +1,18 @@
-.no {
-    background: black;
+.home_map_div{
+    background: url("images/worldmap.png");
+    height: 1390px;
+    width: 1300px;
+    margin-left: 20%;
+}
+
+.home_map_div div{
+    border: solid black 2px;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+}
+
+.home_map_alaska_div{
+    margin-top: 10%;
+    margin-left: 5%;
 }
