@@ -23,14 +23,6 @@ class UserController
         $view->display();
     }
 
-    public function register()
-    {
-        $view = new View('user_register');
-        $view->title = 'Benutzer erstellen';
-        $view->heading = 'Benutzer erstellen';
-        $view->display();
-    }
-
     public function doCreate()
     {
         if ($_POST['send']) {
