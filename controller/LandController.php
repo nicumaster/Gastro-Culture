@@ -9,17 +9,12 @@ class LandController
 {
     public function index()
     {
-        $view = new View('user_index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->display();
-    }
-
-    public function Alaska()
-    {
-        $view = new View('Land_Alaska');
-        $view->title = 'Alaska';
-        $view->heading = 'Alaska';
+        $landRepository = new LandRepository();
+        $region = $_GET['region'];
+        $landRepository->selectRegion($region);
+        $view = new View('land_index');
+        $view->title = 'Land';
+        $view->heading = '';
         $view->display();
     }
 }

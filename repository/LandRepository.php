@@ -7,13 +7,13 @@ require_once '../lib/Repository.php';
  *
  * Die Ausführliche Dokumentation zu Repositories findest du in der Repository Klasse.
  */
-class UserRepository extends Repository
+class LandRepository extends Repository
 {
     /**
      * Diese Variable wird von der Klasse Repository verwendet, um generische
      * Funktionen zur Verfügung zu stellen.
      */
-    protected $tableName = 'user';
+    protected $tableName = 'laender';
 
     /**
      * Erstellt einen neuen benutzer mit den gegebenen Werten.
@@ -29,24 +29,7 @@ class UserRepository extends Repository
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
 
-    public function create($firstName, $lastName, $email, $password)
-    {
-        $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
-        if($db->error){
-            die;
-        }
-        $db->set_charset('utf8');
-        $password = sha1($password);
+    public function selectRegion($region) {
 
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
-
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
-
-        if (!$statement->execute()) {
-            throw new Exception($statement->error);
-        }
-
-        return $statement->insert_id;
     }
 }
