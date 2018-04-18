@@ -28,8 +28,14 @@ class UserRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
+
     public function create($firstName, $lastName, $email, $password)
     {
+        $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
+        if($db->error){
+            die;
+        }
+        $db->set_charset('utf8');
         $password = sha1($password);
 
         $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";

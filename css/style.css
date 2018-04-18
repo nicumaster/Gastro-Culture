@@ -1,12 +1,17 @@
-body{
-    background: black;
+html{
+    zoom: 75%;
+}
+
+.body{
+    background-color: black;
 }
 
 .home_map_div{
     background: url("images/worldmap.png");
-    height: 100%;
+    height: 1060px;
     width: 1300px;
-    margin-left: 7.5%;
+    margin-left: 17%;
+    margin-top: -60px;
     position: absolute;
 }
 
