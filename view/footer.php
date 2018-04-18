@@ -1,6 +1,6 @@
         <hr>
-        <footer>
-          <p>&copy; ICT Berufsbildungcenter AG 2016</p>
+        <footer class="footer">
+          <p>&copy; Simu&Nicolas AG</p>
         </footer>
     </div>
 
