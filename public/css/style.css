@@ -2,18 +2,29 @@ html{
     zoom: 69%;
 }
 
+.nav_login_inputs{
+    margin: 3px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: groove;
+}
+
+.nav_login_inputs:focus{
+    outline: none;
+}
+
 .user_logo{
-    width: 80px;
+    width: 70px;
     height: 60px;
-    margin: 0;
+    margin: 3px;
     background: url("images/userlogo.png") no-repeat;
     background-size: contain;
     float: left;
 }
 .nav_login{
-    background-color: deepskyblue;
-    height: 60px;
-    width: 400px;
+    height: 68px;
+    width: 260px;
     float: right;
     margin: 0;
 }

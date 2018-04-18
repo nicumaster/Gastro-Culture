@@ -29,5 +29,7 @@
 
     <div class="nav_login">
         <div class="user_logo"></div>
+        <input onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" title="useram:" placeholder="username" type="text" name="username">
+        <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" title="password:" placeholder="password" type="password" name="password">
     </div>
 </nav>
