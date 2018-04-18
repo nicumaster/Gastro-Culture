@@ -16,13 +16,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="default">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Über uns</a>
+                <a class="nav-link" href="uberuns">Über uns</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="user">Login</a>
             </li>
         </ul>
     </div>
