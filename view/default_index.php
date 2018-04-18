@@ -1,5 +1,5 @@
 <div class="home_map_div">
-    <div class="home_map_alaska_div"></div>
+    <a href="Land/Alaska"><div  class="home_map_alaska_div"></div></a>
     <div class="home_map_canada_div"></div>
     <div class="home_map_europe_div"></div>
     <div class="home_map_russia_div"></div>

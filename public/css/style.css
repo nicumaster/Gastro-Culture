@@ -25,6 +25,7 @@ html{
 }
 
 .home_map_alaska_div{
+    display: block;
     margin-top: 6%;
     margin-left: 8.8%;
     height: 50px;

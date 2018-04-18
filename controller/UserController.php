@@ -9,12 +9,9 @@ class UserController
 {
     public function index()
     {
-        $userRepository = new UserRepository();
-
         $view = new View('user_index');
         $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
+        $view->heading = '';
         $view->display();
     }
 
