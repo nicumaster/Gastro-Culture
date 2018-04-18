@@ -10,7 +10,15 @@ class UserController
     public function index()
     {
         $view = new View('user_index');
-        $view->title = 'Benutzer';
+        $view->title = 'Users';
+        $view->heading = '';
+        $view->display();
+    }
+
+    public function register()
+    {
+        $view = new View('user_register');
+        $view->title = 'Register';
         $view->heading = '';
         $view->display();
     }
