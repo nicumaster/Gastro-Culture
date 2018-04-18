@@ -10,8 +10,20 @@ html{
     border-bottom: groove;
 }
 
+.nav_login div{
+    display: block;
+}
 .nav_login_inputs:focus{
     outline: none;
+}
+
+.user_logo_register{
+    width: 70px;
+    height: 60px;
+    margin: 3px;
+    background: url("images/userlogo_register.png") no-repeat;
+    background-size: contain;
+    float: left;
 }
 
 .user_logo{
@@ -24,7 +36,7 @@ html{
 }
 .nav_login{
     height: 68px;
-    width: 260px;
+    width: 340px;
     float: right;
     margin: 0;
 }
