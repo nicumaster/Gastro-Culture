@@ -30,7 +30,7 @@
     <div class="nav_login">
         <a href="\user\register"><div class="user_logo_register"></div></a>
         <a href="\user\profile"><div class="user_logo"></div></a>
-        <input onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" title="useram:" placeholder="username" type="text" name="username">
-        <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" title="password:" placeholder="password" type="password" name="password">
+        <input onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="username" type="text" name="username">
+        <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="password" type="password" name="password">
     </div>
 </nav>
