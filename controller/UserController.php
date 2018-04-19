@@ -48,6 +48,16 @@ class UserController
         header('Location: /user');
     }
 
+    public function doLogin(){
+
+        echo "<script type='text/javascript'>confirm(\"Press a button!\");</script>";
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $userRepository = new UserRepository();
+            $userRepository->login($username, $password);
+        }
+    }
     public function delete()
     {
         $userRepository = new UserRepository();

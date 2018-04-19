@@ -11,32 +11,15 @@ $form = new Form('/user/doCreate');
     <input onblur="this.placeholder = 'user@example.com'" onfocus="this.placeholder= ''"  class="nav_login_inputs" placeholder="user@example.com" type="text" name="email"/>
     <a>password:</a>
     <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="password" type="text" name="password"/>
-    <button onclick="<?php meldung(); ?>" class="submit_button_register" type="submit">register</button>
+    <input onclick="msgRegisterSucces();" class="submit_button_register" type="submit" value="login"/>
 <?php
 echo $form->end();
+?>
 
-function meldung(){
-    echo "<div class='alert alert-succes'><strong>Registrierung Erfolgreich!<strong/><div/>";
+<script type="javascript">
+
+function msgRegisterSucces(){
+    alert("registration successfull !")
 }
 
-?>
-
-
-
-<!--
-<?php
-
-
-$form = new Form('/user/doCreate');
-
-echo $form->text()->label('username')->name('username')->class('nav_login_inputs')->onblur('this.placeholder="example_46"')->onfocus('this.placeholder= ""')->placeholder('firstname');
-echo $form->text()->label('firstname')->name('firstname');
-echo $form->text()->label('lastname')->name('lastname');
-echo $form->text()->label('email')->name('email');
-echo $form->text()->label('password')->name('password');
-// echo $form->password()->label('Password')->name('password');
-echo $form->submit()->label('Benutzer erstellen')->name('send');
-
-$form->end();
-?>
--->
+<script/>

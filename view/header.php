@@ -19,20 +19,21 @@
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="\uberuns">Über uns</a>
+                <a class="nav-link" href="/uberuns">Über uns</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="\user">users</a>
+                <a class="nav-link" href="/user">users</a>
             </li>
         </ul>
     </div>
 
     <div class="nav_login">
-        <a href="\user\register"><div class="user_logo_register"></div></a>
-        <a href="\user\profile"><div class="user_logo"></div></a>
-        <form type="submit" class="login_form">
+        <a href="/user/register"><div class="user_logo_register"></div></a>
+        <a href="/user/profile"><div class="user_logo"></div></a>
+        <form class="login_form" method="post" action="/user/doLogin">
             <input onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="username" type="text" name="username">
             <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="password" type="password" name="password">
+            <input type="submit" class="login_button_header" value="login">
         </form>
     </div>
 </nav>

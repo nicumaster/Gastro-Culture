@@ -32,7 +32,7 @@ class UserRepository extends Repository
     public function create($firstName, $lastName, $email, $password)
     {
         $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
-        if($db->error){
+        if ($db->error) {
             die;
         }
         $db->set_charset('utf8');
@@ -48,5 +48,34 @@ class UserRepository extends Repository
         }
 
         return $statement->insert_id;
+    }
+
+    public function login($username, $password)
+    {
+        $message = "User Repository";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        $query = "SELECT username, password FROM users WHERE username=?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $username);
+        $statement->execute();
+
+        $userResult = $statement->get_result();
+        if (!$userResult) {
+            echo "<div class='alert alert-error'><strong>wrong username</strong><div/>";
+
+        }
+        if ($userResult) {
+
+            $user = $userResult->fetch_object();
+
+            if (password_verify($password, $user->password)) {
+                echo "<div class='alert alert-success'><strong>login erfolgreich</strong><div/>";
+            } else {
+                echo "<div class='alert alert-error'><strong>wrong password</strong><div/>";
+            }
+
+
+        }
+        $statement->close();
     }
 }
