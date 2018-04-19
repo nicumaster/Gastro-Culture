@@ -29,14 +29,27 @@ class UserRepository extends Repository
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
     public function readallUsers() {
+        $query = "SELECT * FROM $this->tableName";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->execute();
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+        $statement->close();
+        return $rows;
+    }
 
-<<<<<<< HEAD
     public function create($firstName, $lastName, $email, $password)
     {
         $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
         if ($db->error) {
             die;
-=======
         $query = "SELECT * FROM $this->tableName";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();
@@ -44,7 +57,6 @@ class UserRepository extends Repository
         $result = $statement->get_result();
         if (!$result) {
             throw new Exception($statement->error);
->>>>>>> e670b6089dc0d2c41cb4f2de6aed69fa24b357be
         }
 
         // Datensätze aus dem Resultat holen und in das Array $rows speichern
