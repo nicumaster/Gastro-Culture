@@ -30,7 +30,7 @@ class LandRepository extends Repository
      */
     public function read()
     {
-        $query = "SELECT * FROM {$this->tableName} k LEFT JOIN orte o ON k.oid = o.oid ORDER BY {$this->order}";
+        $query = "SELECT * FROM {$this->tableName}";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();
