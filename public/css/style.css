@@ -10,7 +10,6 @@ html{
     margin-top: 5%;
 }
 
-
 .register_div input, a, button{
     float: left;
     margin: 10px;
@@ -67,6 +66,7 @@ html{
 
 .body{
     background-color: black;
+    color:white;
 }
 
 .home_map_div a{
