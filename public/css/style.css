@@ -2,18 +2,96 @@ html{
     zoom: 69%;
 }
 
-.register_div{
-    background-color: whitesmoke;
-    width: 220px;
-    height: 600px;
-    margin-left: 40%;
-    margin-top: 5%;
+.form-horizontal{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 30%;
+    height: 500px;
+    zoom: 150%;
+    padding: 30px;
+    background: white;
+    color: black;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
 }
 
-.register_div input, a, button{
-    float: left;
-    margin: 10px;
-    margin-left: 20px;
+.form-horizontal button{
+    background: transparent;
+    border: none;
+    border-bottom: double;
+}
+
+.form-horizontal button:hover{
+   zoom: 120%;
+    margin-left: 95px;
+    margin-top: 15px;
+}
+
+.form-horizontal h2{
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+
+.form-horizontal input[type="text"],
+.form-horizontal input[type="date"],
+.form-horizontal input[type="datetime"],
+.form-horizontal input[type="email"],
+.form-horizontal input[type="number"],
+.form-horizontal input[type="search"],
+.form-horizontal input[type="time"],
+.form-horizontal input[type="url"],
+.form-horizontal input[type="password"],
+.form-horizontal textarea,
+.form-horizontal select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+
+.form-horizontal textarea{
+    resize:none;
+    overflow: hidden;
+}
+
+.form-horizontal input[type="button"],
+.form-horizontal input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.form-horizontal input[type="button"]:hover,
+.form-horizontal input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
 }
 
 .submit_button_register{
@@ -67,6 +145,9 @@ html{
 .body{
     background-color: black;
     color:white;
+}
+.form-horizontal{
+    background-color: white;
 }
 
 .home_map_div a{
