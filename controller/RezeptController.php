@@ -17,6 +17,12 @@ class RezeptController
         $view->display();
     }
 
+    public function ingridients() {
+        $view = new View('rezept_ingridients');
+        $view->title = 'ingridients';
+        $view->heading = '';
+        $view->display();
+    }
     public function create()
     {
         $view = new View('user_create');
