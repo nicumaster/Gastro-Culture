@@ -1,5 +1,5 @@
 <?php
-$form = new Form('/user/doCreate');
+$form = new Form('/user/doRegister', 'post');
 ?>
     <a>username:</a>
     <input onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="username" type="text" name="username"/>
@@ -22,4 +22,7 @@ function msgRegisterSucces(){
     alert("registration successfull !")
 }
 
+<<<<<<< HEAD
 <script/>
+=======
+>>>>>>> e670b6089dc0d2c41cb4f2de6aed69fa24b357be
