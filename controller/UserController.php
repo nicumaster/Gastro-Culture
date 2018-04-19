@@ -9,8 +9,10 @@ class UserController
 {
     public function index()
     {
+        $userRepository = new UserRepository();
         $view = new View('users_index');
         $view->title = 'Users';
+        $view->users = $userRepository->readallUsers();
         $view->heading = '';
         $view->display();
     }

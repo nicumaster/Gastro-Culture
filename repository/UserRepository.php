@@ -28,6 +28,25 @@ class UserRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
+    public function readallUsers() {
+
+        $query = "SELECT * FROM $this->tableName";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+        $statement->close();
+        return $rows;
+    }
 
     public function create($username, $firstname, $lastname, $email, $password)
     {
