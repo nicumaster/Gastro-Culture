@@ -13,7 +13,7 @@ class UserRepository extends Repository
      * Diese Variable wird von der Klasse Repository verwendet, um generische
      * Funktionen zur Verfügung zu stellen.
      */
-    protected $tableName = 'user';
+    protected $tableName = 'users';
 
     /**
      * Erstellt einen neuen benutzer mit den gegebenen Werten.
@@ -29,24 +29,17 @@ class UserRepository extends Repository
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
 
-    public function create($firstName, $lastName, $email, $password)
+    public function create($username, $firstname, $lastname, $email, $password)
     {
-        $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
-        if($db->error){
-            die;
-        }
-        $db->set_charset('utf8');
-        $password = sha1($password);
-
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
-
+        $query = "INSERT INTO $this->tableName (username, firstname, lastname, email, password) VALUES (?,?,?,?,?)";
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
+        $statement->bind_param('sssss', $username, $firstname, $lastname, $email, $password);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);
         }
 
-        return $statement->insert_id;
+        $statement->close();
+        header('Location: /user');
     }
 }

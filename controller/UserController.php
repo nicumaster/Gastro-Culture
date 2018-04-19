@@ -31,21 +31,16 @@ class UserController
         $view->display();
     }
 
-    public function doCreate()
+    public function doRegister()
     {
-        if ($_POST['send']) {
-            $firstName = $_POST['firstName'];
-            $lastName = $_POST['lastName'];
-            $email = $_POST['email'];
-            // $password  = $_POST['password'];
-            $password = 'no_password';
-
-            $userRepository = new UserRepository();
-            $userRepository->create($firstName, $lastName, $email, $password);
-        }
-
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $passwort = $_POST['password'];
+        $passwort = password_hash($passwort, PASSWORD_DEFAULT);
+        $userRepository = new UserRepository();
+        $userRepository->create($username, $firstname, $lastname, $email, $passwort);
     }
 
     public function delete()
