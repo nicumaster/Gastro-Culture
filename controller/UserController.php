@@ -9,7 +9,7 @@ class UserController
 {
     public function index()
     {
-        $view = new View('user_index');
+        $view = new View('users_index');
         $view->title = 'Users';
         $view->heading = '';
         $view->display();
@@ -19,6 +19,14 @@ class UserController
     {
         $view = new View('user_register');
         $view->title = 'Register';
+        $view->heading = '';
+        $view->display();
+    }
+
+    public function profile()
+    {
+        $view = new View('user_profile');
+        $view->title = 'My profile';
         $view->heading = '';
         $view->display();
     }
