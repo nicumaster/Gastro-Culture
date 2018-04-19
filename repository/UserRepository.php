@@ -25,7 +25,7 @@ class UserRepository extends Repository
      * @param $lastName Wert für die Spalte lastName
      * @param $email Wert für die Spalte email
      * @param $password Wert für die Spalte password
-     *
+     *lkjljkl
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
     public function readallUsers() {
