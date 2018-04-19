@@ -22,7 +22,7 @@ class RezeptController
         $view = new View('rezept_ingridients');
         $view->title = 'ingridients';
         $view->heading = '';
-        $view->ingridients = $rezeptRepository->readIngredients($_GET['recipe']);
+        $view->ingredients = $rezeptRepository->readIngredients($_GET['recipe']);
         $view->display();
     }
     public function create() {
