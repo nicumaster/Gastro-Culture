@@ -4,7 +4,7 @@ html{
 
 .form-horizontal{
     font-family: 'Open Sans Condensed', arial, sans;
-    width: 30%;
+    width: 400px;
     height: 500px;
     zoom: 150%;
     padding: 30px;
@@ -17,13 +17,27 @@ html{
 
 }
 
-.form-horizontal button{
+.login_button_header{
     background: transparent;
+    width: 80px;
     border: none;
     border-bottom: double;
 }
 
-.form-horizontal button:hover{
+.login_button_header:hover{
+    background: orange;
+    zoom: 110%;
+}
+.submit_button_register{
+    background: transparent;
+    width: 80px;
+    border: none;
+    border-bottom: double;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
+.submit_button_register:hover{
     zoom: 120%;
     margin-left: 95px;
     margin-top: 15px;
@@ -94,31 +108,12 @@ html{
     background-color:#34CACA;
 }
 
-.submit_button_register{
-    margin-top: 20px;
-    margin-left: 120px;
-}
-
 .nav_login_inputs{
     margin: 3px;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: groove;
-}
-
-.login_button_header{
-    background: transparent;
-    border: none;
-    border-bottom: double;
-    margin-left: 20px;
-    margin-top: -100px;
-    padding: 6px;
-    zoom: 130%;
-}
-.login_button_header:hover{
-    background-color: white;
-    color: black;
 }
 
 .nav_login_inputs:focus{
