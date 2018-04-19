@@ -30,6 +30,13 @@ class UserRepository extends Repository
      */
     public function readallUsers() {
 
+<<<<<<< HEAD
+    public function create($firstName, $lastName, $email, $password)
+    {
+        $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
+        if ($db->error) {
+            die;
+=======
         $query = "SELECT * FROM $this->tableName";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();
@@ -37,6 +44,7 @@ class UserRepository extends Repository
         $result = $statement->get_result();
         if (!$result) {
             throw new Exception($statement->error);
+>>>>>>> e670b6089dc0d2c41cb4f2de6aed69fa24b357be
         }
 
         // Datensätze aus dem Resultat holen und in das Array $rows speichern
@@ -60,5 +68,34 @@ class UserRepository extends Repository
 
         $statement->close();
         header('Location: /user');
+    }
+
+    public function login($username, $password)
+    {
+        $message = "User Repository";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        $query = "SELECT username, password FROM users WHERE username=?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $username);
+        $statement->execute();
+
+        $userResult = $statement->get_result();
+        if (!$userResult) {
+            echo "<div class='alert alert-error'><strong>wrong username</strong><div/>";
+
+        }
+        if ($userResult) {
+
+            $user = $userResult->fetch_object();
+
+            if (password_verify($password, $user->password)) {
+                echo "<div class='alert alert-success'><strong>login erfolgreich</strong><div/>";
+            } else {
+                echo "<div class='alert alert-error'><strong>wrong password</strong><div/>";
+            }
+
+
+        }
+        $statement->close();
     }
 }

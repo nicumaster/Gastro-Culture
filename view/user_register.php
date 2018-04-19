@@ -11,15 +11,18 @@ $form = new Form('/user/doRegister', 'post');
     <input onblur="this.placeholder = 'user@example.com'" onfocus="this.placeholder= ''"  class="nav_login_inputs" placeholder="user@example.com" type="text" name="email"/>
     <a>password:</a>
     <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="password" type="text" name="password"/>
-    <button onclick="<?php meldung(); ?>" class="submit_button_register" type="submit">register</button>
+    <input onclick="msgRegisterSucces();" class="submit_button_register" type="submit" value="login"/>
 <?php
 echo $form->end();
-
-function meldung(){
-    echo "<div class='alert alert-succes'><strong>Registrierung Erfolgreich!<strong/><div/>";
-}
-
 ?>
 
+<script type="javascript">
 
+function msgRegisterSucces(){
+    alert("registration successfull !")
+}
 
+<<<<<<< HEAD
+<script/>
+=======
+>>>>>>> e670b6089dc0d2c41cb4f2de6aed69fa24b357be
