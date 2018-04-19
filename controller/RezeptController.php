@@ -17,22 +17,22 @@ class RezeptController
         $view->display();
     }
 
-    public function ingridients() {
+    public function ingredients() {
+        $rezeptRepository = new RezeptRepository();
         $view = new View('rezept_ingridients');
         $view->title = 'ingridients';
         $view->heading = '';
+        $view->ingridients = $rezeptRepository->readIngredients($_GET['recipe']);
         $view->display();
     }
-    public function create()
-    {
+    public function create() {
         $view = new View('user_create');
         $view->title = 'Benutzer erstellen';
         $view->heading = 'Benutzer erstellen';
         $view->display();
     }
 
-    public function doCreate()
-    {
+    public function doCreate() {
         if ($_POST['send']) {
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];

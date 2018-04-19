@@ -45,29 +45,6 @@ class UserRepository extends Repository
         return $rows;
     }
 
-    public function create($firstName, $lastName, $email, $password)
-    {
-        $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
-        if ($db->error) {
-            die;
-        $query = "SELECT * FROM $this->tableName";
-        $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->execute();
-
-        $result = $statement->get_result();
-        if (!$result) {
-            throw new Exception($statement->error);
-        }
-
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
-        $rows = array();
-        while ($row = $result->fetch_object()) {
-            $rows[] = $row;
-        }
-        $statement->close();
-        return $rows;
-    }
-
     public function create($username, $firstname, $lastname, $email, $password)
     {
         $query = "INSERT INTO $this->tableName (username, firstname, lastname, email, password) VALUES (?,?,?,?,?)";
