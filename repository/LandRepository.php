@@ -30,7 +30,7 @@ class LandRepository extends Repository
      */
     public function read($region)
     {
-        $query = "SELECT * FROM $this->tableName WHERE region_id=(SELECT region_id FROM regions where region like '%$region%')";
+        $query = "SELECT * FROM $this->tableName WHERE region_id=(SELECT region_id FROM regions where region like '$region%')";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();

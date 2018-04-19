@@ -13,7 +13,7 @@ class RezeptController
         $view = new View('rezept_index');
         $view->title = 'recipes';
         $view->heading = '';
-        $view->recipes = $rezeptRepository->readallrecipes();
+        $view->recipes = $rezeptRepository->readrecipes($_GET['country']);
         $view->display();
     }
 

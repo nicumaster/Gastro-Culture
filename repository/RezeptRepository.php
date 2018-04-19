@@ -29,8 +29,8 @@ class RezeptRepository extends Repository
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
 
-    public function readallrecipes() {
-        $query = "SELECT * FROM $this->tableName";
+    public function readrecipes($land) {
+        $query = "SELECT * FROM $this->tableName WHERE country_id=(SELECT country_id FROM countries WHERE country like '$land')";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();
