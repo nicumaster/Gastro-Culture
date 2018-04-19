@@ -13,7 +13,7 @@
             // Schleife über alle Kontakte, die jeweils in einer Tabellenzeile angezeigt werden.
             foreach($countries as $country) {
                 echo "<tr>
-				<td>".$country->country."</td>
+				<td><a href='rezept'>".$country->country."</a></td>
 				<td>".$country->language."</td>
 				<td>".$country->population."</td>
 				</tr>\n";

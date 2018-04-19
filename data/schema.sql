@@ -35,8 +35,8 @@ CREATE TABLE  recipes (
   country_id   INT UNSIGNED NOT NULL,
   recipe       VARCHAR(64)  NOT NULL,
   culture      VARCHAR(64)  NOT NULL,
-  history      VARCHAR(64)  NOT NULL,
-  description  VARCHAR(64)  NOT NULL,
+  history      VARCHAR(500)  NOT NULL,
+  description  VARCHAR(500)  NOT NULL,
   PRIMARY KEY  (recipe_id),
   CONSTRAINT FK_Country FOREIGN KEY (country_id)
   REFERENCES countries(country_id)

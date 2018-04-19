@@ -5,16 +5,15 @@ require_once '../repository/RezeptRepository.php';
 /**
  * Siehe Dokumentation im DefaultController.
  */
-class UserController
+class RezeptController
 {
     public function index()
     {
-        $userRepository = new UserRepository();
-
-        $view = new View('user_index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
+        $rezeptRepository = new RezeptRepository();
+        $view = new View('rezept_index');
+        $view->title = 'recipes';
+        $view->heading = '';
+        $view->recipes = $rezeptRepository->readallrecipes();
         $view->display();
     }
 

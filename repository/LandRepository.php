@@ -48,8 +48,4 @@ class LandRepository extends Repository
         $statement->close();
         return $rows;
     }
-
-    public function selectRegion($region) {
-
-    }
 }
