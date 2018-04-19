@@ -22,7 +22,7 @@ class UserController
         $view->heading = '';
         $view->display();
     }
-    
+
     public function doCreate()
     {
         if ($_POST['send']) {

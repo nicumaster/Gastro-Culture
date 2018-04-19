@@ -13,7 +13,7 @@ class LandRepository extends Repository
      * Diese Variable wird von der Klasse Repository verwendet, um generische
      * Funktionen zur Verfügung zu stellen.
      */
-    protected $tableName = 'laender';
+    protected $tableName = 'countries';
 
     /**
      * Erstellt einen neuen benutzer mit den gegebenen Werten.
@@ -28,9 +28,9 @@ class LandRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function read()
+    public function read($region)
     {
-        $query = "SELECT * FROM {$this->tableName}";
+        $query = "SELECT * FROM $this->tableName WHERE region_id=(SELECT region_id FROM regions where region like '%$region%')";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();

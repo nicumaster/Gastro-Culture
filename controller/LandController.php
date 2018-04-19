@@ -15,7 +15,7 @@ class LandController
         $view = new View('land_index');
         $view->title = 'Land';
         $view->heading = '';
-        $view->countries = $landRepository->read();
+        $view->countries = $landRepository->read($region);
         $view->display();
     }
 }

@@ -5,7 +5,7 @@
             <tr>
                 <th>Country</th>
                 <th>Language</th>
-                <th>Population</th>
+                <th>Population(in Millions)</th>
             </tr>
             </thead>
             <tbody>
