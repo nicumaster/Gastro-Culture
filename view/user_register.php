@@ -1,7 +1,6 @@
 <?php
 $form = new Form('/user/doCreate');
 ?>
-    <div class="register_div">
     <a>username:</a>
     <input onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="username" type="text" name="username"/>
     <a>firstname:</a>
@@ -9,11 +8,10 @@ $form = new Form('/user/doCreate');
     <a>lastname:</a>
     <input onblur="this.placeholder = 'lastname'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="lastname" type="text" name="lastname"/>
     <a>email:</a>
-    <input onblur="this.placeholder = 'user@example.com'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="email" type="text" name="email"/>
+    <input onblur="this.placeholder = 'user@example.com'" onfocus="this.placeholder= ''"  class="nav_login_inputs" placeholder="user@example.com" type="text" name="email"/>
     <a>password:</a>
     <input onblur="this.placeholder = 'password'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="password" type="text" name="password"/>
     <button onclick="<?php meldung(); ?>" class="submit_button_register" type="submit">register</button>
-    </div>
 <?php
 echo $form->end();
 

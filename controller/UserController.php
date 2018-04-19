@@ -23,6 +23,14 @@ class UserController
         $view->display();
     }
 
+    public function profile()
+    {
+        $view = new View('user_profile');
+        $view->title = 'Profile';
+        $view->heading = '';
+        $view->display();
+    }
+
     public function doCreate()
     {
         if ($_POST['send']) {
