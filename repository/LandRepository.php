@@ -28,6 +28,26 @@ class LandRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
+    public function read()
+    {
+        $query = "SELECT * FROM {$this->tableName} k LEFT JOIN orte o ON k.oid = o.oid ORDER BY {$this->order}";
+
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+        $statement->close();
+        return $rows;
+    }
 
     public function selectRegion($region) {
 
