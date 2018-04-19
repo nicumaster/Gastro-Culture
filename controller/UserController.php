@@ -9,7 +9,7 @@ class UserController
 {
     public function index()
     {
-        $view = new View('user_index');
+        $view = new View('users_index');
         $view->title = 'Users';
         $view->heading = '';
         $view->display();
@@ -22,14 +22,7 @@ class UserController
         $view->heading = '';
         $view->display();
     }
-
-    public function profile()
-    {
-        $view = new View('user_profile');
-        $view->title = 'Profile';
-        $view->heading = '';
-        $view->display();
-    }
+    
     public function doCreate()
     {
         if ($_POST['send']) {
