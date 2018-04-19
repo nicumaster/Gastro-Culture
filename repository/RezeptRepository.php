@@ -7,13 +7,13 @@ require_once '../lib/Repository.php';
  *
  * Die Ausführliche Dokumentation zu Repositories findest du in der Repository Klasse.
  */
-class UserRepository extends Repository
+class RezeptRepository extends Repository
 {
     /**
      * Diese Variable wird von der Klasse Repository verwendet, um generische
      * Funktionen zur Verfügung zu stellen.
      */
-    protected $tableName = 'user';
+    protected $tableName = 'recipes';
 
     /**
      * Erstellt einen neuen benutzer mit den gegebenen Werten.
@@ -29,24 +29,23 @@ class UserRepository extends Repository
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
 
-    public function create($firstName, $lastName, $email, $password)
-    {
-        $db = new MySQL('localhost', 'root', 'pwd', 'dbname');
-        if($db->error){
-            die;
-        }
-        $db->set_charset('utf8');
-        $password = sha1($password);
-
-        $query = "INSERT INTO $this->tableName (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
+    public function readallrecipes() {
+        $query = "SELECT * FROM $this->tableName";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ssss', $firstName, $lastName, $email, $password);
+        $statement->execute();
 
-        if (!$statement->execute()) {
+        $result = $statement->get_result();
+        if (!$result) {
             throw new Exception($statement->error);
         }
 
-        return $statement->insert_id;
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+        $statement->close();
+        return $rows;
     }
 }

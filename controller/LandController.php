@@ -11,7 +11,6 @@ class LandController
     {
         $landRepository = new LandRepository();
         $region = $_GET['region'];
-        $landRepository->selectRegion($region);
         $view = new View('land_index');
         $view->title = 'Land';
         $view->heading = '';
