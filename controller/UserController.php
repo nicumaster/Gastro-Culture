@@ -73,6 +73,7 @@ class UserController
             header('Location:'.$_SERVER['HTTP_REFERER']);
         }
     }
+
     public function upload() {
         $userRepository = new UserRepository();
         $upload_folder = '/images/user_images/'; //Das Upload-Verzeichnis

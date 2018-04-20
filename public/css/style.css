@@ -46,7 +46,7 @@ html{
 }
 
 form.login_form{
-    width: 400px;
+    width: 348px;
     margin: 0;
 }
 
@@ -355,11 +355,16 @@ user_logo a{
     width: 150px;
     object-fit: contain;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 #userlist {
     text-align: center;
 }
+#usercontainer {
+    margin-left: 100px;
+}
+
 .input_format{
     margin: 10px;
     color: white;

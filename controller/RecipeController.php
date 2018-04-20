@@ -1,35 +1,36 @@
 <?php
 
-require_once '../repository/RezeptRepository.php';
+require_once '../repository/RecipeRepository.php';
 
 /**
  * Siehe Dokumentation im DefaultController.
  */
-class RezeptController
+class RecipeController
 {
     public function index()
     {
-        $rezeptRepository = new RezeptRepository();
-        $view = new View('rezept_index');
+        $recipeRepository = new RecipeRepository();
+        $view = new View('recipe_index');
         $view->title = 'recipes';
         $view->heading = '';
-        $view->recipes = $rezeptRepository->readrecipes($_GET['country']);
+        $view->recipes = $recipeRepository->readrecipes($_GET['country']);
         $view->display();
     }
 
     public function ingredients() {
-        $rezeptRepository = new RezeptRepository();
-        $view = new View('rezept_ingridients');
+        $recipeRepository = new RecipeRepository();
+        $view = new View('recipe_ingridients');
         $view->title = 'ingridients';
         $view->heading = '';
-        $view->recipes = $rezeptRepository->readRecipe($_GET['rid']);
-        $view->ingredients = $rezeptRepository->readIngredients($_GET['recipe']);
+        $view->recipes = $recipeRepository->readRecipe($_GET['rid']);
+        $view->ingredients = $recipeRepository->readIngredients($_GET['recipe']);
         $view->display();
     }
-    public function create() {
-        $view = new View('user_create');
-        $view->title = 'Benutzer erstellen';
-        $view->heading = 'Benutzer erstellen';
+
+    public function add() {
+        $view = new View('recipe_add');
+        $view->title = 'add recipe';
+        $view->heading = 'add recipe';
         $view->display();
     }
 

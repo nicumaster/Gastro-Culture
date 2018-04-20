@@ -16,7 +16,7 @@
             foreach($recipes as $recipe) {
                 echo "<tr>
                 <td>".$placeholer_pictures."</td> <!-- Placeholder_pictures muss durch Bilder in files aufrufen ersetzt werden-->
-				<td><a class='land_a' href='rezept/ingredients?recipe=$recipe->recipe&rid=$recipe->recipe_id'>".$recipe->recipe."</a></td>
+				<td><a class='land_a' href='recipe/ingredients?recipe=$recipe->recipe&rid=$recipe->recipe_id'>".$recipe->recipe."</a></td>
 				<td>".$recipe->culture."</td>
 				<td>".$recipe->history."</td>
 				<td>".$recipe->description."</td>
