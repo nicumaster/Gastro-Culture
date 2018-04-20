@@ -77,13 +77,15 @@ class UserController
         //Überprüfung der Dateiendung
         $allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
         if(!in_array($extension, $allowed_extensions)) {
-            die("nichts");
+            header('Location: profile?uploaderror=type');
+            die();
         }
 
         //Überprüfung der Dateigröße
         $max_size = 500*1024; //500 KB
         if($_FILES['datei']['size'] > $max_size) {
-            die("Bitte keine Dateien größer 500kb hochladen");
+            header('Location: profile?uploaderror=size');
+            die();
         }
 
         //Überprüfung dass das Bild keine Fehler enthält
@@ -91,7 +93,8 @@ class UserController
             $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
             $detected_type = exif_imagetype($_FILES['datei']['tmp_name']);
             if(!in_array($detected_type, $allowed_types)) {
-                die("Nur der Upload von Bilddateien ist gestattet");
+                header('Location: profile?uploaderror=type');
+                die();
             }
         }
 
@@ -107,10 +110,13 @@ class UserController
             } while(file_exists($new_path));
         }
 
-        //Alles okay, verschiebe Datei an neuen Pfad
-        move_uploaded_file($_FILES['datei']['tmp_name'], $new_path);
-        echo 'Bild erfolgreich hochgeladen: <a href="'.$new_path.'">'.$new_path.'</a>';
-        $userRepository->uploadPicture($new_path);
-        header('Location: profile');
+        if($_SESSION['uploaderror'] == '') {
+            //Alles okay, verschiebe Datei an neuen Pfad
+            move_uploaded_file($_FILES['datei']['tmp_name'], $new_path);
+            $userRepository->uploadPicture($new_path);
+            header('Location: profile');
+        } else {
+            header('Location: profile');
+        }
     }
 }
