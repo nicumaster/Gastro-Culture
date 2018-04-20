@@ -27,9 +27,9 @@ class RezeptController
         $view->display();
     }
     public function create() {
-        $view = new View('user_create');
-        $view->title = 'Benutzer erstellen';
-        $view->heading = 'Benutzer erstellen';
+        $view = new View('rezept_add');
+        $view->title = 'add recipe';
+        $view->heading = 'add recipe';
         $view->display();
     }
 

@@ -50,9 +50,20 @@ class UserController
     public function logout() {
         unset($_SESSION);
         session_destroy();
-        header('Location:'.$_SERVER['HTTP_REFERER']);
+        header('Location: /user/register');
     }
 
+    public function delete(){
+        $userRepository = new UserRepository();
+        $userRepository->deleteById($_SESSION['userid']);;
+    }
+
+    public function update()
+    {   $view = new View('user_update');
+        $view->title = 'Profile';
+        $view->heading = '';
+        $view->display();
+    }
     public function doLogin(){
 
         if (isset($_POST['username']) && isset($_POST['password'])) {
