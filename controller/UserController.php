@@ -67,7 +67,7 @@ class UserController
         //Überprüfung der Dateiendung
         $allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
         if(!in_array($extension, $allowed_extensions)) {
-            die("Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt");
+            die("nichts");
         }
 
         //Überprüfung der Dateigröße
