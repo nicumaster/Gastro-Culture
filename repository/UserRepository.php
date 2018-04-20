@@ -137,14 +137,12 @@ class UserRepository extends Repository
         $statement->close();
     }
 
-    public function updateProfile($path, $user)
-    { if ($_POST['submit']) {
-        $userRepository = new UserRepository();
-        $userRepository->updateProfile($_SESSION['userid']);;
-    }
-        $query = "UPDATE users SET user_picture=? WHERE username=?";
+    public function update($userid, $username, $firstname, $lastname, $email, $password)
+    {
+        $query = "UPDATE users SET username=? ,firstname=?, lastname=?, email=?, password=? WHERE user_id=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('ss', $path, $user);
+        $statement->bind_param('ssssss', $username, $firstname, $lastname, $email, $password, $userid);
         $statement->execute();
+        header('Location: /user/profile');
     }
 }

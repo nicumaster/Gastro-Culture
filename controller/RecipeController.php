@@ -26,14 +26,9 @@ class RecipeController
         $view->ingredients = $recipeRepository->readIngredients($_GET['recipe']);
         $view->display();
     }
-<<<<<<< HEAD:controller/RecipeController.php
 
     public function add() {
         $view = new View('recipe_add');
-=======
-    public function create() {
-        $view = new View('rezept_add');
->>>>>>> 305a302b0927ad3f93c2a2254da7c6a78efdec9c:controller/RezeptController.php
         $view->title = 'add recipe';
         $view->heading = 'add recipe';
         $view->display();

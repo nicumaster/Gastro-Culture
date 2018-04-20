@@ -70,6 +70,7 @@ form.logout_form{
     background: orange;
     zoom: 110%;
 }
+
 .submit_button_register{
     background: transparent;
     width: 80px;
@@ -85,6 +86,24 @@ form.logout_form{
     margin-top: 15px;
 }
 
+.update_profile_btn{
+    background: transparent;
+    width: 80px;
+    border: none;
+    border-bottom: double;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
+.update_profile_btn:hover{
+    zoom: 120%;
+    margin-left: 95px;
+    margin-top: 15px;
+}
+
+.update_profile_btn{
+
+}
 .form-horizontal h2{
     background: #4D4D4D;
     text-transform: uppercase;
@@ -128,22 +147,6 @@ form.logout_form{
     overflow: hidden;
 }
 
-.form-horizontal input[type="button"],
-.form-horizontal input[type="submit"]{
-    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    box-shadow: inset 0px 1px 0px 0px #45D6D6;
-    background-color: #2CBBBB;
-    border: 1px solid #27A0A0;
-    display: inline-block;
-    cursor: pointer;
-    color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 14px;
-    padding: 8px 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
 .form-horizontal input[type="button"]:hover,
 .form-horizontal input[type="submit"]:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);

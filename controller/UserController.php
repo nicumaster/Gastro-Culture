@@ -36,7 +36,7 @@ class UserController
     }
 
     public function doRegister()
-    {
+    { if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])) {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $firstname = $_POST['firstname'];
@@ -45,6 +45,10 @@ class UserController
         $passwort = password_hash($passwort, PASSWORD_DEFAULT);
         $userRepository = new UserRepository();
         $userRepository->create($username, $firstname, $lastname, $email, $passwort);
+        } else {
+        header('Location: /user/register');
+        }
+
     }
 
     public function logout() {
@@ -55,7 +59,24 @@ class UserController
 
     public function delete(){
         $userRepository = new UserRepository();
-        $userRepository->deleteById($_SESSION['userid']);;
+        $userRepository->deleteById($_SESSION['userid']);
+    }
+
+    public function doUpdate(){
+        if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+            $userid = $_SESSION['userid'];
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $passwort = $_POST['password'];
+            $password = password_hash($passwort, PASSWORD_DEFAULT);
+            $userRepository = new UserRepository();
+            $userRepository->update($userid, $username, $firstname, $lastname, $email, $password);
+        } else {
+            header('Location: /user/update');
+        }
+
     }
 
     public function update()
