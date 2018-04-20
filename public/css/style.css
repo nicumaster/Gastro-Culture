@@ -346,10 +346,20 @@ user_logo a{
 #recipepic {
     height: 500px;
     width: 500px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 10px;
 }
 
+#profilepic {
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+#userlist {
+    text-align: center;
+}
 .input_format{
     margin: 10px;
     color: white;
