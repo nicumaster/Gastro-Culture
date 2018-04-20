@@ -2,7 +2,7 @@
 $form = new Form('/user/doRegister', 'post');
 ?>
 <script>
-    alert('Füllen Sie bitte alle Füller aus!');
+    alert('Füllen Sie bitte alle Füller aus um sich (erneut) zu registrieren!');
 </script>
     <a>username:</a>
     <input title="Füllen Sie das Feld aus" pattern="(([a-Z]).{1,20})" onblur="this.placeholder = 'username'" onfocus="this.placeholder= ''" class="nav_login_inputs" placeholder="username" type="text" name="username"/>
