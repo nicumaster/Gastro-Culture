@@ -49,12 +49,22 @@ class UserController
 
     public function doLogin(){
 
-        echo "<script type='text/javascript'>confirm(\"Press a button!\");</script>";
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $userRepository = new UserRepository();
-            $userRepository->login($username, $password);
+            if(!empty($_POST['username']) && !empty($_POST['password'])){
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $userRepository = new UserRepository();
+                $userRepository->login($username, $password);
+
+            } else {
+                $_SESSION['message'] = 'username or password are are wrong';
+                $_SESSION['loginerror'] = true;
+                header('Location:'.$_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            $_SESSION['message'] = 'username or password are are wrong';
+            $_SESSION['loginerror'] = true;
+            header('Location:'.$_SERVER['HTTP_REFERER']);
         }
     }
     public function upload() {

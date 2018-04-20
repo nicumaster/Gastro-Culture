@@ -61,8 +61,6 @@ class UserRepository extends Repository
 
     public function login($username, $password)
     {
-        $message = "User Repository";
-        echo "<script type='text/javascript'>alert('$message');</script>";
         $query = "SELECT username, password FROM users WHERE username=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $username);
@@ -70,7 +68,9 @@ class UserRepository extends Repository
 
         $userResult = $statement->get_result();
         if (!$userResult) {
-            echo "<div class='alert alert-error'><strong>wrong username</strong><div/>";
+            $_SESSION['loginerror'] = true;
+            $_SESSION['message'] = 'incorrect username';
+            header('Location:'.$_SERVER['HTTP_REFERER']);
 
         }
         if ($userResult) {
@@ -78,14 +78,19 @@ class UserRepository extends Repository
             $user = $userResult->fetch_object();
 
             if (password_verify($password, $user->password)) {
-                echo "<div class='alert alert-success'><strong>login erfolgreich</strong><div/>";
+                $_SESSION['loginsuccess'] = true;
+                $_SESSION['username'] = $username;
+                $_SESSION['message'] = 'login erfolgreich!';
+                header('Location:'.$_SERVER['HTTP_REFERER']);
             } else {
-                echo "<div class='alert alert-error'><strong>wrong password</strong><div/>";
+                $_SESSION['loginerror'] = true;
+                $_SESSION['message'] = 'username or password are wrong';
+                header('Location:'.$_SERVER['HTTP_REFERER']);
             }
-
 
         }
         $statement->close();
+
     }
 
     public function userSignedIn() {
