@@ -120,7 +120,7 @@ class UserController
         }
         $user = $_SESSION['username'];
         //Datei auf dem Server speichern und Datenbank eintrag machen
-        var_dump(move_uploaded_file($_FILES['datei']['tmp_name'], $new_path));
+        move_uploaded_file($_FILES['datei']['tmp_name'], $new_path);
         $userRepository->uploadPicture($new_path, $user);
         header('Location: profile');
     }
