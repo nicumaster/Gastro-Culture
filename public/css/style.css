@@ -335,15 +335,34 @@ user_logo a{
 .home_map_australia_div:hover{
     background: greenyellow;
 }
+
 #ingridients {
     margin: 50px;
     font-size: 20px;
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 #recipepic {
     height: 500px;
     width: 500px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.input_format{
+    margin: 10px;
+    color: white;
+    background-color: deeppink;
+    border: solid white 2px;
+    float: left;
+}
+
+.input_format:hover{
+    background-color: deepskyblue;
+}
+
+.upload_form{
+    width: 400px;
+    height: 150px;
 }

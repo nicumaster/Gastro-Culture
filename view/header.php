@@ -19,10 +19,10 @@
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/uberuns">Über uns</a>
+                <a class="nav-link" href="/uberuns">About us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/user">users</a>
+                <a class="nav-link" href="/user">Users</a>
             </li>
             <?php
             if(isset($_SESSION['userid']) && isset($_SESSION['username'])){
