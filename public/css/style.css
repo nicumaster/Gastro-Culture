@@ -17,10 +17,37 @@ html{
 
 }
 
+.logout_a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.about_us_div{
+    text-decoration: none;
+    color: white;
+    border: double 2px white;
+    margin-top: 50px;
+    margin-left: 30%;
+    height: 600px;
+    width: 1000px;
+    link: none;
+    padding: 30px;
+}
+
 form.login_form{
     width: 400px;
     margin: 0;
 }
+
+
+form.logout_form{
+    width: 80px;
+    margin: 0;
+    float: right;
+    border: none;
+    background-color: whitesmoke;
+}
+
 .login_button_header{
     background: transparent;
     width: 80px;

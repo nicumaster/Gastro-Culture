@@ -61,7 +61,7 @@ class UserRepository extends Repository
 
     public function login($username, $password)
     {
-        $query = "SELECT username, password FROM users WHERE username=?";
+        $query = "SELECT username, user_id, password FROM users WHERE username=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $username);
         $statement->execute();
@@ -80,6 +80,7 @@ class UserRepository extends Repository
             if (password_verify($password, $user->password)) {
                 $_SESSION['loginsuccess'] = true;
                 $_SESSION['username'] = $username;
+                $_SESSION['userid'] = $user->user_id;
                 $_SESSION['message'] = 'login erfolgreich!';
                 header('Location:'.$_SERVER['HTTP_REFERER']);
             } else {
@@ -94,8 +95,9 @@ class UserRepository extends Repository
     }
 
     public function userSignedIn() {
-        $query = "SELECT username, firstname, lastname, email, user_picture FROM $this->tableName WHERE user_id='1'";
+        $query = "SELECT username, firstname, lastname, email FROM users WHERE user_id=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('i', $_SESSION['userid']);
         $statement->execute();
         $result = $statement->get_result();
         if (!$result) {

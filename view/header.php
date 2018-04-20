@@ -24,6 +24,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="/user">users</a>
             </li>
+            <?php
+            if(isset($_SESSION['userid']) && isset($_SESSION['username'])){
+                echo "<li class='nav-item'>";
+                echo "<a class='nav-link' href='/recipe/add'>add recipe</a>";
+                echo "</li>";
+                echo "<li class='nav-item'>";
+                echo "<a class='nav-link' href='/user/profile'>my profile</a>";
+                echo "</li>";
+            }
+            ?>
         </ul>
     </div>
 
@@ -39,7 +49,7 @@
             $_SESSION['loginerror'] = false;
         }
         if($_SESSION['loginerror']){
-            $_SESSION['loginsuccess'] = true;
+            $_SESSION['loginsuccess'] = false;
             $_SESSION['loginmiss'] = false;
         }
         if($_SESSION['loginsuccess']){
@@ -57,11 +67,11 @@
             echo "<div class='alert alert-warning'>".$_SESSION['message']."</div>";
         }
         echo "</div>";
-        echo "<div class=\"nav_login\">";
-        if(isset($_SESSION['id']) && isset($_SESSION['username'])){
-            echo "<div class='user_logo'><a href='/user/profile'/></div>";
-            echo "<form action='/user/logout' type='submit'><input type='submit' class='login_button_header' value='logout'></form>";
+        if(isset($_SESSION['userid']) && isset($_SESSION['username'])){
+            echo "<div class='user_logo'><a class='logout_a' href='/user/profile'></a></div>";
+            echo "<form action='/user/logout' class='logout_form' type='submit'><input type='submit' class='login_button_header' value='logout'></form>";
         } else {
+            echo "<div class=\"nav_login\">";
             echo "<div class='user_logo_register'><a href='/user/register'></a></div>";
             echo "<form class='login_form' method='post' action='/user/doLogin'>";
             echo "<input onblur='this.placeholder = \"username\"' onfocus='this.placeholder= \" \"' class='nav_login_inputs' placeholder='username' type='text' name='username'>";

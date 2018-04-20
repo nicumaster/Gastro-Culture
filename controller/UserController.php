@@ -47,6 +47,12 @@ class UserController
         $userRepository->create($username, $firstname, $lastname, $email, $passwort);
     }
 
+    public function logout() {
+        unset($_SESSION);
+        session_destroy();
+        header('Location:'.$_SERVER['HTTP_REFERER']);
+    }
+
     public function doLogin(){
 
         if (isset($_POST['username']) && isset($_POST['password'])) {
