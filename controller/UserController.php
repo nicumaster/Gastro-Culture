@@ -75,9 +75,10 @@ class UserController
     }
     public function upload() {
         $userRepository = new UserRepository();
-        $upload_folder = '/images/user_images/'; //Das Upload-Verzeichnis
+        $upload_folder = 'images/user_images/'; //Das Upload-Verzeichnis
         $filename = pathinfo($_FILES['datei']['name'], PATHINFO_FILENAME);
         $extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
+
 
 
         //Überprüfung der Dateiendung
@@ -94,16 +95,6 @@ class UserController
             die();
         }
 
-        //Überprüfung dass das Bild keine Fehler enthält
-        if(function_exists('exif_imagetype')) { //Die exif_imagetype-Funktion erfordert die exif-Erweiterung auf dem Server
-            $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
-            $detected_type = exif_imagetype($_FILES['datei']['tmp_name']);
-            if(!in_array($detected_type, $allowed_types)) {
-                header('Location: profile?uploaderror=type');
-                die();
-            }
-        }
-
         //Pfad zum Upload
         $new_path = $upload_folder.$filename.'.'.$extension;
 
@@ -115,14 +106,11 @@ class UserController
                 $id++;
             } while(file_exists($new_path));
         }
-
-        if($_SESSION['uploaderror'] == '') {
-            //Alles okay, verschiebe Datei an neuen Pfad
-            move_uploaded_file($_FILES['datei']['tmp_name'], $new_path);
-            $userRepository->uploadPicture($new_path);
-            header('Location: profile');
-        } else {
-            header('Location: profile');
-        }
+        $user = $_SESSION['username'];
+        //Datei auf dem Server speichern und Datenbank eintrag machen
+        var_dump(move_uploaded_file($_FILES['datei']['tmp_name'], $new_path));
+        die;
+        $userRepository->uploadPicture($new_path, $user);
+        header('Location: profile');
     }
 }

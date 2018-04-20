@@ -97,7 +97,7 @@ class UserRepository extends Repository
     }
 
     public function userSignedIn() {
-        $query = "SELECT username, firstname, lastname, email FROM users WHERE user_id=?";
+        $query = "SELECT username, firstname, lastname, email, user_picture FROM users WHERE user_id=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('i', $_SESSION['userid']);
         $statement->execute();
@@ -114,10 +114,10 @@ class UserRepository extends Repository
         return $rows;
     }
 
-    public function uploadPicture($path) {
-        $query="UPDATE users SET user_picture='$path' WHERE username='ramyfikker'";//ramyfikker muss ersetzt werden durch eingeloggter benutzer
+    public function uploadPicture($path, $user) {
+        $query="UPDATE users SET user_picture=? WHERE username=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        //$statement->bind_param('s', $path);
+        $statement->bind_param('ss', $path, $user);
         $statement->execute();
         $statement->close();
     }
