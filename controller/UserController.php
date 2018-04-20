@@ -75,7 +75,7 @@ class UserController
     }
     public function upload() {
         $userRepository = new UserRepository();
-        $upload_folder = '/images/'; //Das Upload-Verzeichnis
+        $upload_folder = '/images/user_images/'; //Das Upload-Verzeichnis
         $filename = pathinfo($_FILES['datei']['name'], PATHINFO_FILENAME);
         $extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
 

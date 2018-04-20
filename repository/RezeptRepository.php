@@ -28,7 +28,7 @@ class RezeptRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-
+    //Liest alle Rezepte welche zum ausgewählten Land gehören
     public function readrecipes($land) {
         $query = "SELECT * FROM $this->tableName WHERE country_id=(SELECT country_id FROM countries WHERE country like '$land%')";
 
@@ -50,10 +50,31 @@ class RezeptRepository extends Repository
         return $rows;
     }
 
-    public function readIngredients($recipe) {
-        $query = "SELECT i.ingredient, ir.quantity_gr FROM ingredients AS i LEFT JOIN ingredients_recipies AS ir ON i.ingredient_id=ir.ingredient_id LEFT JOIN recipes AS r ON r.recipe_id = ir.recipe_id WHERE r.recipe='$recipe'";
+    //Liest das Rezept welches ausgewählt wurde
+    public function readRecipe($rid) {
+        $query = "SELECT * FROM $this->tableName WHERE recipe_id=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        //$statement->bind_param('s', $recipe);
+        $statement->bind_param('i', $rid);
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+        $statement->close();
+        return $rows;
+    }
+    //Liest alle Zutaten welche zum ausgewählten Rezept gehören
+    public function readIngredients($recipe) {
+        $query = "SELECT i.ingredient, ir.quantity_gr FROM ingredients AS i LEFT JOIN ingredients_recipies AS ir ON i.ingredient_id=ir.ingredient_id LEFT JOIN recipes AS r ON r.recipe_id = ir.recipe_id WHERE r.recipe=?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $recipe);
         $statement->execute();
 
         $result = $statement->get_result();
