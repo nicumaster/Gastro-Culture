@@ -86,7 +86,7 @@ class UserController
     }
     public function upload() {
         $userRepository = new UserRepository();
-        $upload_folder = 'images/user_images/'; //Das Upload-Verzeichnis
+        $upload_folder = '/images/user_images/'; //Das Upload-Verzeichnis
         $filename = pathinfo($_FILES['datei']['name'], PATHINFO_FILENAME);
         $extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
 
@@ -120,7 +120,6 @@ class UserController
         $user = $_SESSION['username'];
         //Datei auf dem Server speichern und Datenbank eintrag machen
         var_dump(move_uploaded_file($_FILES['datei']['tmp_name'], $new_path));
-        die;
         $userRepository->uploadPicture($new_path, $user);
         header('Location: profile');
     }

@@ -3,7 +3,7 @@
         <h2>My profile picture</h2>
         <div id="recipepic">
             <?php
-            foreach($users as $user) {
+            foreach($userdata as $user) {
                 echo "<img id='recipepic' src=$user->user_picture>";
             }
             ?>
@@ -35,7 +35,7 @@
                 <div class="panel-heading"><?= $user->firstname; ?> <?= $user->lastname; ?></div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading"><img src="<?= $user->user_picture; ?>"></div>
+                <div class="panel-heading"><?= $user->email; ?> </div>
             </div>
         <?php endforeach ?>
         <button id='delete_profile_btn' class="input_format">Delete my Profile</button>
