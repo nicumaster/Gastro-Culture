@@ -361,6 +361,14 @@ user_logo a{
     margin-top: 20px;
 }
 
+#foodpic {
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: -25px;
+}
+
 #userlist {
     text-align: center;
 }

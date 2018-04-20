@@ -17,7 +17,8 @@ class RecipeController
         $view->display();
     }
 
-    public function ingredients() {
+    public function ingredients()
+    {
         $recipeRepository = new RecipeRepository();
         $view = new View('recipe_ingridients');
         $view->title = 'ingridients';
@@ -26,6 +27,7 @@ class RecipeController
         $view->ingredients = $recipeRepository->readIngredients($_GET['recipe']);
         $view->display();
     }
+<<<<<<< HEAD
 
     public function add() {
         $view = new View('recipe_add');
@@ -59,3 +61,6 @@ class RecipeController
         header('Location: /user');
     }
 }
+=======
+}
+>>>>>>> b5c5ecdea62dcad794cb8f6d791ddc7d1c60cf29
