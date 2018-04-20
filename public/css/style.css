@@ -324,3 +324,10 @@ user_logo a{
 .home_map_australia_div:hover{
     background: greenyellow;
 }
+#ingridients {
+    margin: 50px;
+    font-size: 20px;
+}
+#recipepic {
+    border-radius: 10px;
+}
