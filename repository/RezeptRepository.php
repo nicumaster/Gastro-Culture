@@ -72,7 +72,7 @@ class RezeptRepository extends Repository
     }
     //Liest alle Zutaten welche zum ausgewählten Rezept gehören
     public function readIngredients($recipe) {
-        $query = "SELECT i.ingredient, ir.quantity_gr FROM ingredients AS i LEFT JOIN ingredients_recipies AS ir ON i.ingredient_id=ir.ingredient_id LEFT JOIN recipes AS r ON r.recipe_id = ir.recipe_id WHERE r.recipe=?";
+        $query = "SELECT i.ingredient, ir.quantity FROM ingredients AS i LEFT JOIN ingredients_recipies AS ir ON i.ingredient_id=ir.ingredient_id LEFT JOIN recipes AS r ON r.recipe_id = ir.recipe_id WHERE r.recipe=?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('s', $recipe);
         $statement->execute();

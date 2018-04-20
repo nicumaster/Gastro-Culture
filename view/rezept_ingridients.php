@@ -1,17 +1,19 @@
 <div class="row">
         <div class="col-sm-4" id="ingridients">
-            <?php
-            foreach($recipes as $recipe) {
-                echo "<img id='recipepic' src=$recipe->recipe_picture>";
-            }
-            ?>
+            <div id="recipepic">
+                <?php
+                foreach($recipes as $recipe) {
+                    echo "<img id='recipepic' src=$recipe->recipe_picture>";
+                }
+                ?>
+            </div>
         </div>
         <div class="col-sm-4" id="ingridients">
             <h2>Recipe</h2>
             <?php
             foreach($ingredients as $ingredient) {
                 echo "
-                 ".$ingredient->ingredient." ".$ingredient->quantity_gr."<br>
+                 ".$ingredient->ingredient." ".$ingredient->quantity."<br>
                  \n ";
             }
             ?>
