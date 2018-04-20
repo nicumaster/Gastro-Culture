@@ -22,6 +22,17 @@ html{
     height: 100%;
     display: block;
 }
+
+.land_a{
+    text-decoration: none;
+    color: deeppink;
+}
+
+.land_a:hover {
+    text-decoration: none;
+    color: deepskyblue;
+}
+
 .about_us_div{
     text-decoration: none;
     color: white;

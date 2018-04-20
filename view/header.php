@@ -36,7 +36,6 @@
             ?>
         </ul>
     </div>
-
         <?php
         if(!$_SESSION['loginerror'] && !$_SESSION['loginsuccess']){
             if(!isset($_SESSION['id'])){

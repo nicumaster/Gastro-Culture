@@ -79,9 +79,11 @@ class UserRepository extends Repository
 
             if (password_verify($password, $user->password)) {
                 $_SESSION['loginsuccess'] = true;
+                $_SESSION['loginmiss'] = false;
+                $_SESSION['loginerror'] = false;
                 $_SESSION['username'] = $username;
                 $_SESSION['userid'] = $user->user_id;
-                $_SESSION['message'] = 'login erfolgreich!';
+                $_SESSION['message'] = 'Youre logged in!';
                 header('Location:'.$_SERVER['HTTP_REFERER']);
             } else {
                 $_SESSION['loginerror'] = true;
