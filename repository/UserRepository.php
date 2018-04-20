@@ -59,6 +59,21 @@ class UserRepository extends Repository
         header('Location: /user');
     }
 
+    public function deleteById($userid)
+    {
+        $query = "DELETE FROM users WHERE user_id=?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('i', $userid);
+
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+
+        $statement->close();
+
+        header('Location: /user/logout');
+    }
+
     public function login($username, $password)
     {
         $query = "SELECT username, user_id, password FROM users WHERE username=?";
@@ -84,7 +99,7 @@ class UserRepository extends Repository
                 $_SESSION['username'] = $username;
                 $_SESSION['userid'] = $user->user_id;
                 $_SESSION['message'] = 'Youre logged in!';
-                header('Location:'.$_SERVER['HTTP_REFERER']);
+                header('Location: /user/profile');
             } else {
                 $_SESSION['loginerror'] = true;
                 $_SESSION['message'] = 'username or password are wrong';
@@ -120,5 +135,16 @@ class UserRepository extends Repository
         $statement->bind_param('ss', $path, $user);
         $statement->execute();
         $statement->close();
+    }
+
+    public function updateProfile($path, $user)
+    { if ($_POST['submit']) {
+        $userRepository = new UserRepository();
+        $userRepository->updateProfile($_SESSION['userid']);;
+    }
+        $query = "UPDATE users SET user_picture=? WHERE username=?";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('ss', $path, $user);
+        $statement->execute();
     }
 }

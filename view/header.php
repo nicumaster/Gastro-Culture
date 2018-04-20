@@ -9,9 +9,10 @@
     <link href="/css/bootstrap-grid.min.css" rel="stylesheet">
     <link href="/css/bootstrap-reboot.css" rel="stylesheet">
     <link href="/css/bootstrap-reboot.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body class="body">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav style="z-index: 10;" class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Gastro-Culture.ch</a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">

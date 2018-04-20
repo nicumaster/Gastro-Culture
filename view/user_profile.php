@@ -38,6 +38,28 @@
                 <div class="panel-heading"><?= $user->email; ?> </div>
             </div>
         <?php endforeach ?>
+        <button id='delete_profile_btn' class="input_format">Delete my Profile</button>
+        <button id='update_profile_btn' class="input_format">Update my Profile</button>
     </div>
+    <script>
+    jQuery(function() {
+        $('#delete_profile_btn').click(function() {
 
+            var r = confirm("Do you really wanna DELETE your profile?");
+            console.log(r);
+            if (r) {
+                document.location.href = '/user/delete';
+            }
+        });
+    });
+    jQuery(function() {
+        $('#update_profile_btn').click(function() {
 
+            var r = confirm("Do you really wanna UPDATE your profile?");
+            console.log(r);
+            if (r) {
+                document.location.href = '/user/update';
+            }
+        });
+    });
+</script>
