@@ -87,4 +87,29 @@ class UserRepository extends Repository
         }
         $statement->close();
     }
+
+    public function userSignedIn() {
+        $query = "SELECT username, firstname, lastname, email, user_picture FROM $this->tableName WHERE user_id='1'";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->execute();
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+        $statement->close();
+        return $rows;
+    }
+
+    public function uploadPicture($path) {
+        $query="UPDATE users SET user_picture='$path' WHERE username='ramyfikker'";//ramyfikker muss ersetzt werden durch eingeloggter benutzer
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        //$statement->bind_param('s', $path);
+        $statement->execute();
+        $statement->close();
+    }
 }
