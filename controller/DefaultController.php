@@ -48,6 +48,12 @@ class DefaultController
         header("/login");
     }
 
+    public function logout()
+    {
+        header("/logout");
+    }
+
+
 
 
 }

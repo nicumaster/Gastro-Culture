@@ -1,4 +1,4 @@
-ï»¿DROP DATABASE IF EXISTS gastro_culture_DB;
+DROP DATABASE IF EXISTS gastro_culture_DB;
 
 CREATE  DATABASE gastro_culture_DB;
 
@@ -60,17 +60,12 @@ CREATE TABLE  ingredients_recipies (
   REFERENCES recipes(recipe_id)
   ON DELETE CASCADE);
 
-
-INSERT INTO users (firstname, lastname, username, email, password) VALUES
-  ('Ramon',  'Binz', 'ramyfikker', 'ramon.binz@bbcag.ch',   sha1('ramon')),
-  ('Samuel', 'Wicky', 'sÃ¤myfikker', 'samuel.wicky@bbcag.ch', sha1('samuel'));
-
 INSERT INTO ingredients (ingredient) VALUES
-  ('ChÃ¤s'),
+  ('Chäs'),
   ('Spaghetti'),
-  ('NÃ¼sse'),
+  ('Nüsse'),
   ('Ananas'),
-  ('HÃ¤rdÃ¶pfffu');
+  ('Härdöpfffu');
 
 
 INSERT INTO regions (region) VALUES
